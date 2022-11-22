@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_web/client_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,7 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           _pageController.jumpToPage(0);
                         },
                         child: const Icon(
-                          Icons.flutter_dash_rounded,
+                          Icons.flutter_dash_sharp,
                           size: 70,
                           color: Colors.white,
                         ),
@@ -79,7 +78,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   _buildPage('Web Example Home', Colors.white),
                   //pages
                   // _buildPage('Página de clientes', Colors.white),
-                  _clientWidget(),
+                  SingleChildScrollView(scrollDirection: Axis.vertical ,child: _clientWidget()),
                   _buildPage('Página de Produtos', Colors.white),
                   _buildPage('Página de Perfil', Colors.white),
                   _buildPage('Página de compras', Colors.white),
@@ -194,9 +193,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: TextField(
                     decoration: InputDecoration(
                         fillColor: Colors.blue[50],
-                        hintText: 'digite aqui',
+                        hintText: 'Digite aqui',
                         border: const OutlineInputBorder(
-                          borderSide: BorderSide(color: Colors.blue),
+                          borderSide: BorderSide(color: Colors.blue,),
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
                           ),
@@ -219,74 +218,83 @@ class _MyHomePageState extends State<MyHomePage> {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 20,
+              height: 25,
             ),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Container(
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: const Color.fromARGB(255, 25, 65, 94),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: const [
-                              Icon(Icons.person),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text('Nome Cliente tal'),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Text('Numero Identificação'),
-                            ],
-                          ),
-                        ],
+            Column(
+              children: [
+                for(int i=0; i<10; i++)
+                  Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: const Color.fromARGB(255, 25, 65, 94),
+                          width: 3,
+                        ),
+                        borderRadius: const BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
                       ),
-                      Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            children: const [
-                              Icon(
-                                Icons.add,
-                                color: Colors.green,
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(Icons.read_more),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(
-                                Icons.edit,
-                                color: Colors.blue,
-                              ),
-                              SizedBox(
-                                width: 30,
-                              ),
-                              Icon(
-                                Icons.delete,
-                                color: Colors.red,
-                              ),
-                            ],
-                          ),
-                        ],
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: const [
+                                    Icon(Icons.person),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text('Nome Cliente tal'),
+                                    SizedBox(
+                                      width: 15,
+                                    ),
+                                    Text('Numero Identificação'),
+                                  ],
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: const [
+                                    Icon(
+                                      Icons.add,
+                                      color: Colors.green,
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Icon(Icons.read_more),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Icon(
+                                      Icons.edit,
+                                      color: Colors.blue,
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                    ],
+                    ),
                   ),
-                ),
-              ),
+              ],
             ),
           ],
         ),
